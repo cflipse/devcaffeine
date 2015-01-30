@@ -56,12 +56,14 @@ GEM
     octopress-abort-tag (1.0.2)
       jekyll (~> 2.0)
       octopress-tag-helpers (~> 1.0)
+    octopress-asset-pipeline (2.0.1)
+      octopress-ink (~> 1.0.0.rc)
     octopress-code-highlighter (4.2.3)
       colorator (~> 0.1)
     octopress-codefence (1.5.1)
       octopress-code-highlighter (~> 4.2)
       octopress-hooks (~> 2.1)
-    octopress-date-format (3.0.2)
+    octopress-date-format (2.0.2)
       jekyll (~> 2.0)
       octopress-hooks (~> 2.0)
     octopress-deploy (1.0.4)
@@ -78,7 +80,7 @@ GEM
       octopress-hooks (~> 2.0)
       rubypants-unicode
       titlecase
-    octopress-hooks (2.3.2)
+    octopress-hooks (2.4.1)
       jekyll (~> 2.0)
     octopress-include-tag (1.0.3)
       jekyll (~> 2.0)
@@ -93,6 +95,8 @@ GEM
     octopress-return-tag (1.0.1)
       jekyll
       octopress-tag-helpers (~> 1.0)
+    octopress-solarized (1.0.3)
+      octopress-ink (~> 1.0.0.rc)
     octopress-tag-helpers (1.0.2)
       jekyll (~> 2.0)
     parslet (1.5.0)
@@ -104,6 +108,7 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
+    rdiscount (2.1.7.1)
     redcarpet (3.2.2)
     rubypants-unicode (0.2.5)
     safe_yaml (1.0.4)
@@ -123,8 +128,12 @@ PLATFORMS
 
 DEPENDENCIES
   octopress
+  octopress-asset-pipeline
   octopress-code-highlighter
   octopress-codefence
   octopress-date-format
   octopress-deploy
   octopress-feeds
+  octopress-ink
+  octopress-solarized
+  rdiscount

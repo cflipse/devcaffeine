@@ -12,4 +12,15 @@ twitter_username: cflipse
 github_username:  cflipse
 
 # Build settings
-markdown: kramdown
+markdown: rdiscount
+
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks"]
+
+highlighter: pygments
+
+gems:
+  - octopress-solarized
+  - octopress-ink
+  - octopress-code-highlighter
+  - octopress-codefence
