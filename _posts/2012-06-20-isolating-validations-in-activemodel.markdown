@@ -43,7 +43,7 @@ First, the domain model.  Most of this is a straightforward copy of "minimal"
 required by the documentation in
 [ActiveModel::Errors][1]
 
-{% gist cflipse/2961010  Post.rb %}
+{% gist cflipse/2961010 Post.rb %}
 
 Next, we can build a validation.  In this case, I want to be able to validate
 a post in two different states -- draft and published.  A published post requires
