@@ -1,9 +1,8 @@
 ---
 layout: post
-title: "use your environments"
-date: 2013-07-26 21:22
 comments: true
 external-url: 
+permalink: /:year/:month/:day/:title/
 categories: rails
 ---
 

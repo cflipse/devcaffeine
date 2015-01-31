@@ -1,8 +1,7 @@
 ---
 layout: post
-title: "Isolating validations in ActiveModel"
-date: 2012-06-20 15:43
 comments: true
+permalink: /:year/:month/:day/:title/
 categories: ruby
 ---
 
