@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-external-url: 
 permalink: /:year/:month/:day/:title/
+excerpt_separator: <!--more-->
 categories: rails
 ---
 
