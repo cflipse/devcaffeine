@@ -11,6 +11,8 @@ url: "http://devcaffeine.com" # the base hostname & protocol for your site
 twitter_username: cflipse
 github_username:  cflipse
 
+exclude: [.bundle, bin, vendor]
+
 # Build settings
 markdown: rdiscount
 
@@ -24,3 +26,4 @@ gems:
   - octopress-ink
   - octopress-code-highlighter
   - octopress-codefence
+
