@@ -5,7 +5,7 @@ email: cflipse@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   The infrequently updated blog of a software developer working in the DC region.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://devcaffeine.com" # the base hostname & protocol for your site
+url: http://blog.devcaffeine.com # the base hostname & protocol for your site
 twitter_username: cflipse
 github_username:  cflipse
 
@@ -14,7 +14,7 @@ exclude: [.bundle, bin, vendor]
 
 titlecase: true
 
-permalink: /:year/:month/:day/:title
+permalink: /:year/:month/:day/:title/
 
 
 # Build settings
@@ -33,3 +33,5 @@ gems:
   - octopress-solarized
   - octopress-ink
 
+
+disqus_short_name: devcaffeine
