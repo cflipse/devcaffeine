@@ -1,6 +1,8 @@
 # Site settings
 title: /dev/caffeine
+name: /dev/caffeine
 subtitle: A programmer is a biological machine for turning coffee into code
+author: Chris Flipse
 email: cflipse@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   The infrequently updated blog of a software developer working in the DC region.
@@ -32,10 +34,11 @@ highlighter: pygments
 gems:
   - octopress-solarized
   - octopress-ink
-
+  - octopress-feeds
 
 disqus_short_name: devcaffeine
 
 excerpt_link: "Read on &rarr;"
 
 paginate: 5
+
