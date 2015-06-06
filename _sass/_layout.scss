@@ -5,8 +5,8 @@
     background: url('../images/coffeestain.jpg');
     background-position: center -585px; 
     background-size: cover;
-    border-top: 5px solid $grey-color-dark;
-    border-bottom: 1px solid $grey-color-light;
+    border-top: 5px solid $brand-color-dark;
+    border-bottom: 2px solid $brand-color-light;
     min-height: 56px;
 
     // Positioning context for the mobile navigation icon
@@ -39,7 +39,7 @@
 
     &,
     &:visited {
-        color: $grey-color-dark;
+        color: $brand-color;
     }
 }
 
@@ -52,7 +52,7 @@
 
     &,
     &:visited {
-        color: $grey-color-dark;
+        color: $brand-color-dark;
     }
 }
 
