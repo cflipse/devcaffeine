@@ -2,6 +2,9 @@
  * Site header
  */
 .site-header {
+    background: url('../images/coffeestain.jpg');
+    background-position: center -585px; 
+    background-size: cover;
     border-top: 5px solid $grey-color-dark;
     border-bottom: 1px solid $grey-color-light;
     min-height: 56px;
@@ -10,12 +13,29 @@
     position: relative;
 }
 
+.logo {
+  a.image {
+    float: left;
+    margin-right: 20px;
+  }
+
+  .site-title {
+    display:block;
+  }
+
+  .site-subtitle {
+    display: block;
+  }
+}
+
+
 .site-title {
-    font-size: 26px;
+    font-size: 39px;
+    font-family: $code-font-family;
     line-height: 56px;
     letter-spacing: -1px;
     margin-bottom: 0;
-    float: left;
+    font-weight: 700;
 
     &,
     &:visited {
@@ -23,9 +43,22 @@
     }
 }
 
+.site-subtitle {
+    font-size: $base-font-size;
+    line-height: 26px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: 700;
+
+    &,
+    &:visited {
+        color: $grey-color-dark;
+    }
+}
+
+
 .site-nav {
-    float: right;
-    line-height: 56px;
+    padding-top: 0.5em;
 
     .menu-icon {
         display: none;
@@ -92,8 +125,15 @@
  * Site footer
  */
 .site-footer {
+    background: $dark-background-color;
+    color: $light-text-color;
     border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
+
+    a,
+    a:visited {
+      color: $grey-color-light;
+    }
 }
 
 .footer-heading {
@@ -133,6 +173,16 @@
 .footer-col-3 {
     width: -webkit-calc(45% - (#{$spacing-unit} / 2));
     width:         calc(45% - (#{$spacing-unit} / 2));
+}
+
+.colophon {
+  font-size: $small-font-size;
+  color: $grey-color;
+
+  a, a:visited {
+    color: $grey-color;
+  }
+
 }
 
 @include media-query($on-laptop) {
