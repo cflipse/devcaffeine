@@ -1,4 +1,5 @@
 ---
+title: Use your environments
 layout: post
 comments: true
 permalink: /:year/:month/:day/:title/

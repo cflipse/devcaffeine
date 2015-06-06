@@ -1,4 +1,5 @@
 ---
+title: Isolating Validations in ActiveModel
 layout: post
 comments: true
 permalink: /:year/:month/:day/:title/
