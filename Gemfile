@@ -11,6 +11,10 @@ gem 'octopress-date-format'
 gem 'octopress-ink'
 gem 'octopress-solarized'
 gem 'octopress-asset-pipeline'
+gem 'octopress-categories'
+gem 'octopress-paginate'
+gem 'octopress-social'
+
 
 
 gem 'rdiscount'

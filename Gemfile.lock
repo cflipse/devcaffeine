@@ -62,6 +62,8 @@ GEM
       autoprefixer-rails (~> 2.2)
       jekyll (>= 2.0)
       octopress-hooks (~> 2.0)
+    octopress-categories (0.0.1)
+      octopress-ink (>= 1.0.0.rc)
     octopress-code-highlighter (4.2.6)
       colorator (~> 0.1)
       octopress-hooks
@@ -97,9 +99,13 @@ GEM
       octopress-hooks (~> 2.2)
       octopress-include-tag (~> 1.0)
       uglifier (~> 2.5)
+    octopress-paginate (1.1.2)
+      octopress-hooks
     octopress-return-tag (1.0.1)
       jekyll
       octopress-tag-helpers (~> 1.0)
+    octopress-social (1.4.5)
+      jekyll (>= 2.0)
     octopress-solarized (1.1.2)
       octopress-ink (~> 1.0)
     octopress-tag-helpers (1.0.8)
@@ -134,11 +140,14 @@ PLATFORMS
 DEPENDENCIES
   octopress
   octopress-asset-pipeline
+  octopress-categories
   octopress-code-highlighter
   octopress-codefence
   octopress-date-format
   octopress-deploy
   octopress-feeds
   octopress-ink
+  octopress-paginate
+  octopress-social
   octopress-solarized
   rdiscount

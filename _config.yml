@@ -18,7 +18,6 @@ titlecase: true
 
 permalink: /:year/:month/:title/
 
-
 # Build settings
 markdown: redcarpet
 redcarpet:
@@ -35,6 +34,8 @@ gems:
   - octopress-solarized
   - octopress-ink
   - octopress-feeds
+  - octopress-paginate
+  - octopress-social
 
 disqus_short_name: devcaffeine
 
