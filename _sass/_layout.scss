@@ -1,3 +1,28 @@
+/*
+ * Flexbox layout
+ */
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header, .site-footer {
+  flex: 0 0 auto;
+}
+
+.page-content {
+  flex: 1 0 auto;
+}
+
+
+
 /**
  * Site header
  */
