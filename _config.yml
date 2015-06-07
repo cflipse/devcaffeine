@@ -33,7 +33,7 @@ highlighter: pygments
 gems:
   - octopress-solarized
   - octopress-ink
-    #- octopress-feeds
+  - octopress-feeds
   - octopress-paginate
   - octopress-social
 
