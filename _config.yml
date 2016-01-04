@@ -19,25 +19,17 @@ titlecase: true
 permalink: /:year/:month/:title/
 
 # Build settings
-markdown: redcarpet
-redcarpet:
-  extensions:
-    - fenced_code_blocks
-rdiscount:
-  extensions:
-    - autolink
-    - footnotes
-    - smart
-highlighter: pygments
+markdown: kramdown
 
 gems:
   - jekyll-paginate
-  - octopress-solarized
   - octopress-ink
   - octopress-feeds
   - octopress-paginate
   - octopress-social
   - octopress-gist
+  - octopress-codefence
+  - octopress-solarized
 
 disqus_short_name: devcaffeine
 
