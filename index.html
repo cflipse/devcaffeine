@@ -10,15 +10,21 @@ layout: default
     </header>
 
     {% for post in paginator.posts %}
-      <article>
-        <header>
-        <h2>
+      <article class="post">
+        <header class="post-header">
+        <h2 class="post-title">
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
         </header>
 
+        <p class="post-content">
         {{ post.excerpt }}
+      </p>
+
+        <footer class="post-footer">
+          <a rel="full-article" href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a>
+        </footer>
 
       </article>
     {% endfor %}
