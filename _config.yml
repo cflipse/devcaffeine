@@ -31,6 +31,7 @@ rdiscount:
 highlighter: pygments
 
 gems:
+  - jekyll-paginate
   - octopress-solarized
   - octopress-ink
   - octopress-feeds
@@ -41,4 +42,6 @@ gems:
 disqus_short_name: devcaffeine
 
 excerpt_link: "Read on &rarr;"
+
+paginate: 5
 

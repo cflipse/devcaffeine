@@ -18,4 +18,8 @@ gem 'octopress-social'
 gem 'octopress-gist'
 gem 'pygments.rb'
 
+gem 'jekyll-paginate'
+
+
+
 gem 'rdiscount'
