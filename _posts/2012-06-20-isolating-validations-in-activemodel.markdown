@@ -43,25 +43,25 @@ First, the domain model.  Most of this is a straightforward copy of "minimal"
 required by the documentation in
 [ActiveModel::Errors][1]
 
-{% gist cflipse/2961010 Post.rb %}
+{% gist 2961010 Post.rb %}
 
 Next, we can build a validation.  In this case, I want to be able to validate
 a post in two different states -- draft and published.  A published post requires
 an author, a title, and a publication date: 
 
-{% gist cflipse/2961010 published_post_validator.rb %}
+{% gist 2961010 published_post_validator.rb %}
 
 while a draft post only requires a title,
 but also requires that the publication date, if set, be sometime in the future:
 
-{% gist cflipse/2961010 draft_post_validator.rb %}
+{% gist 2961010 draft_post_validator.rb %}
 
 These work pretty well, using a trick with [SimpleDelegator][2] where the
 validation objects wrap and forward unknown methods, such as data accessors, to
 the domain model.  Since mixing in [ActiveModel::Validations][3] provides
 a `#valid?` method to the validator object, that is not forwarded.
 
-{% gist cflipse/2961010 gistfile1.rb %}
+{% gist 2961010 gistfile1.rb %}
 
 Unfortunately, mixing in `ActiveModel::Validations` *also* adds a `#errors` method
 to the validator, meaning that any errors found get added to the validator object,

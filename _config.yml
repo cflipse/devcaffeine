@@ -37,6 +37,7 @@ gems:
   - octopress-feeds
   - octopress-paginate
   - octopress-social
+  - octopress-gist
 
 disqus_short_name: devcaffeine
 
