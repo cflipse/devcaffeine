@@ -31,7 +31,7 @@ that I've been aiming for in this application, and allows me to ignore the
 validations in situtations where they are not needed, without a lot of
 stub/mock gymnastics.
 
-<!--more -->
+<!-- more -->
 
 After a little bit of experimentation, I found that we're even able to
 structure the class so it uses the validation DSL we're all used to from within

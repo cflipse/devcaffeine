@@ -3,7 +3,6 @@ title: Use your environments
 layout: post
 comments: true
 permalink: /:year/:month/:day/:title/
-excerpt_separator: <!-- more -->
 categories: rails
 ---
 
