@@ -3,7 +3,7 @@ title: Use your environments
 layout: post
 comments: true
 permalink: /:year/:month/:day/:title/
-excerpt_separator: <!--more-->
+excerpt_separator: <!-- more -->
 categories: rails
 ---
 
@@ -28,7 +28,7 @@ sort of expensive network computation.  Or, it might be a switch to turn off a
 feature while it's still in development.  There are good reasons for applying
 this pattern ... but the _way_ it's applied leaves much to be desired.
 
-<!--more -->
+<!-- more -->
 
 Tests:  In order to test something like this, you have to lie to your test
 environment -- usually through a stub:

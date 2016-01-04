@@ -19,7 +19,8 @@ titlecase: true
 permalink: /:year/:month/:title/
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
+highlighter: pygments
 
 gems:
   - jekyll-paginate
