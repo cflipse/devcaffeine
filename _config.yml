@@ -20,6 +20,9 @@ permalink: /:year/:month/:title/
 
 # Build settings
 markdown: redcarpet
+redcarpet:
+  extensions:
+    - footnotes
 highlighter: pygments
 
 gems:
