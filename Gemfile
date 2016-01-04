@@ -15,6 +15,8 @@ gem 'octopress-categories'
 gem 'octopress-paginate'
 gem 'octopress-social'
 
+gem 'jekyll-paginate'
+
 
 
 gem 'rdiscount'
