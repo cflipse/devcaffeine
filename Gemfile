@@ -9,6 +9,7 @@ gem 'octopress-feeds'
 gem 'octopress-date-format'
 
 gem 'octopress-ink'
+gem 'octopress-hooks', github: 'octopress/hooks'
 gem 'octopress-solarized'
 gem 'octopress-asset-pipeline'
 gem 'octopress-categories'
