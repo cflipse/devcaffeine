@@ -15,6 +15,8 @@ gem 'octopress-asset-pipeline'
 gem 'octopress-categories'
 gem 'octopress-paginate'
 gem 'octopress-social'
+gem 'octopress-gist'
+gem 'pygments.rb'
 
 gem 'jekyll-paginate'
 
