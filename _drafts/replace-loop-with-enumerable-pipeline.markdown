@@ -3,6 +3,7 @@ layout: post
 title: "Replace Loop With Enumerable Pipeline"
 date: 2016-01-04T14:52:16-05:00
 categories: ruby
+draft: true
 ---
 
 I wanted to talk about a refactoring I've found useful a couple of times over
