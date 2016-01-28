@@ -27,13 +27,17 @@ highlighter: pygments
 
 gems:
   - jekyll-paginate
-  - octopress-ink
-  - octopress-feeds
   - octopress-paginate
+  - octopress-codefence
+  - octopress-ink
   - octopress-social
   - octopress-gist
-  - octopress-codefence
   - octopress-solarized
+  - octopress-categories
+  - octopress-feeds
+  - octopress-pullquote-tag
+  - octopress-quote-tag
+
 
 disqus:
   shortname:  devcaffeine

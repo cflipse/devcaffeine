@@ -84,8 +84,17 @@ GEM
       octopress-hooks (~> 2.2)
       octopress-include-tag (~> 1.0)
       uglifier (~> 2.5)
+    octopress-linkblog (2.0.2)
+      octopress-hooks (~> 2.1)
+      titlecase
     octopress-paginate (1.1.2)
       octopress-hooks
+    octopress-pullquote-tag (1.0.1)
+      jekyll
+      rubypants-unicode
+    octopress-quote-tag (1.0.4)
+      jekyll
+      rubypants
     octopress-return-tag (1.0.1)
       jekyll
       octopress-tag-helpers (~> 1.0)
@@ -105,6 +114,7 @@ GEM
     rdiscount (2.1.8)
     redcarpet (3.3.4)
     rouge (1.10.1)
+    rubypants (0.2.0)
     rubypants-unicode (0.2.5)
     safe_yaml (1.0.4)
     sass (3.4.21)
@@ -130,7 +140,10 @@ DEPENDENCIES
   octopress-gist
   octopress-hooks!
   octopress-ink
+  octopress-linkblog
   octopress-paginate
+  octopress-pullquote-tag
+  octopress-quote-tag
   octopress-social
   octopress-solarized
   pygments.rb
