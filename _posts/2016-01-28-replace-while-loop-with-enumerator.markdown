@@ -48,11 +48,10 @@ there isn't a clear parallel for this case.
 Another issue is that this loop fetches every single page, _before_ returning
 control, and regardless of how many results I actually end up using.
 
-Fortunately, there is `Enumerator`[1], Ruby's answer to producing generators.
+Fortunately, there is [`Enumerator`][1], Ruby's answer to producing generators.
 The enumerator class produces an enumerable, backed with any arbitrary
 generation logic.
 
-[1]: http://docs.ruby-lang.org/en/2.3.0/Enumerator.html
 
 I can refactor the while loop to look more like this:
 
@@ -89,3 +88,4 @@ in standard ruby, providing a more flexible and versatile encapsulation of the
 remote interface.
 
 
+[1]: http://docs.ruby-lang.org/en/2.3.0/Enumerator.html
