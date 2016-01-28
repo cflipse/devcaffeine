@@ -41,6 +41,3 @@ excerpt_link: "Read on &rarr;"
 excerpt_separator: <!-- more -->
 
 paginate: 5
-
-solarized:
-  theme: light
