@@ -33,8 +33,6 @@ gems:
   - octopress-social
   - octopress-gist
   - octopress-solarized
-  - octopress-categories
-  - octopress-feeds
   - octopress-pullquote-tag
   - octopress-quote-tag
 
