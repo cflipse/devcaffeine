@@ -35,7 +35,10 @@ gems:
   - octopress-codefence
   - octopress-solarized
 
-disqus_short_name: devcaffeine
+disqus:
+  shortname:  devcaffeine
+  comments_link_text: Comments
+  comments_disabled_link_text: Comments disabled
 
 excerpt_link: "Read on &rarr;"
 excerpt_separator: <!-- more -->
