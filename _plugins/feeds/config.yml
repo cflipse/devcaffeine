@@ -1,0 +1,5 @@
+titles:
+  main_feed: Feed
+
+permalinks:
+  main_feed: /feed.xml
