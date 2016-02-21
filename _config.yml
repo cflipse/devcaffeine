@@ -23,7 +23,7 @@ markdown: redcarpet
 redcarpet:
   extensions:
     - footnotes
-highlighter: pygments
+highlighter: rouge
 
 gems:
   - jekyll-paginate

@@ -19,7 +19,6 @@ gem 'octopress-gist'
 gem 'octopress-pullquote-tag'
 gem 'octopress-quote-tag'
 gem 'octopress-linkblog'
-gem 'pygments.rb'
 
 gem 'jekyll-paginate'
 
