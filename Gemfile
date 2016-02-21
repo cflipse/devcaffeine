@@ -26,3 +26,5 @@ gem 'jekyll-paginate'
 
 
 gem 'rdiscount'
+gem 'kramdown'
+gem 'rouge'

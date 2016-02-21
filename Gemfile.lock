@@ -129,6 +129,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll-paginate
+  kramdown
   octopress
   octopress-asset-pipeline
   octopress-categories
@@ -148,6 +149,7 @@ DEPENDENCIES
   octopress-solarized
   pygments.rb
   rdiscount
+  rouge
 
 BUNDLED WITH
    1.11.2
