@@ -19,16 +19,10 @@ titlecase: true
 permalink: /:year/:month/:title/
 
 # Build settings
-markdown: redcarpet
-redcarpet:
-  extensions:
-    - footnotes
-highlighter: rouge
 
 gems:
   - jekyll-paginate
   - octopress-paginate
-  - octopress-codefence
   - octopress-ink
   - octopress-social
   - octopress-gist
