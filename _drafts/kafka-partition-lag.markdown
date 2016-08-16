@@ -307,7 +307,7 @@ it's claimed partition, and outside of a few disk space alarms earlier in
 the year, we were generally unaware just _how_ chatty some of our
 messaging had become.
 
-Fast forward to after the topic rebuild; We now have 12 topics -- later 20 --
+Fast forward to after the topic rebuild; We now have 12 partitions -- later 20 --
 being consumed by those same 6 boxes.  Now, the consumers are no longer sitting
 idle, and they are no longer dedicated to a single partition.  Assuming a
 normal balance, Consumer A is pulling data from partitions 3 and 10.  It 
@@ -323,7 +323,7 @@ Ordinarily, this doesn't matter much.  However, when you get into a
 pathological case -- a heavily unbalanced set of partitions, made even worse
 through unbalanced message sizes ... you can get into a case where the
 round-robin blocking is _actively harmful_ ... we had 10 completely up to date
-topics, which would _block_ while waiting for any new messages to come in,
+partitions, which would _block_ while waiting for any new messages to come in,
 before finally moving back to the choked up topic, which would only yield a 
 handful of messages because of block size limits.  When we added partitions to
 try to force a redistribution, we actually made things _worse_ by inserting
