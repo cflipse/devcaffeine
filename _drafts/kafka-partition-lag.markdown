@@ -33,6 +33,8 @@ lying dormant until the right combination of circumstances arose. I think the
 combination is subtle and interesting enough to peel back the curtain a bit
 and see what it was that bit us.
 
+Also, this _might_ qualify as therapy... You've been warned.
+
 <aside markdown='block'>
 ### TL; DR
 
