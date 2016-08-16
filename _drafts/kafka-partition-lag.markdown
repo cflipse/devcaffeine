@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "Experience Report: Kafka Partition Lag"
-date: 2016-08-15T14:45:06-04:00
+title: "War Stories: Kafka Partition Lag"
 categories: postmortem
 comments: true
 tags: kafka, ops
