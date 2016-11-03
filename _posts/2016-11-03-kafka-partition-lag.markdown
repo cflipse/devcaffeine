@@ -35,6 +35,8 @@ and see what it was that bit us.
 
 Also, this _might_ qualify as therapy... You've been warned.
 
+<!-- more -->
+
 <aside markdown='block'>
 ### TL; DR
 
