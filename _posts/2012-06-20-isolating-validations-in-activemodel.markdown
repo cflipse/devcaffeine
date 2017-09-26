@@ -43,25 +43,109 @@ First, the domain model.  Most of this is a straightforward copy of "minimal"
 required by the documentation in
 [ActiveModel::Errors][1]
 
-{% gist 2961010 Post.rb %}
+```ruby
+require 'active_model'
+
+# Most of this is the basic boilerplate described in the docs for active_model/errors; ie, the bare minimum 
+# a class must have to use AM::Errors 
+
+class Post
+  extend ActiveModel::Naming
+
+  attr_reader :errors
+  attr_accessor :title, :author, :publication_date
+
+  def initialize
+    @errors = ActiveModel::Errors.new(self)
+  end
+
+  def read_attribute_for_validation(attr)
+    send(attr)
+  end
+
+  def self.human_attribute_name(attr, options = {})
+    attr
+  end
+
+  def self.lookup_ancestors
+    [self]
+  end
+end
+
+```
+
 
 Next, we can build a validation.  In this case, I want to be able to validate
 a post in two different states -- draft and published.  A published post requires
 an author, a title, and a publication date: 
 
-{% gist 2961010 published_post_validator.rb %}
+```ruby
+# A Validator for published objects.  It may have more stringent validation
+# rules than unpublished posts.
+
+require 'delegate'
+require 'active_model'
+
+class PublishedPostValidator < SimpleDelegator
+  include ActiveModel::Validations
+
+  validates :title, :presence => true
+  validates :author, :presence =>  true
+  validates :publication_date, :presence => true
+
+private
+  def errors
+    __getobj__.errors
+  end
+end
+```
 
 while a draft post only requires a title,
 but also requires that the publication date, if set, be sometime in the future:
 
-{% gist 2961010 draft_post_validator.rb %}
+```ruby
+require 'delegate'
+require 'active_model'
+
+class DraftPostValidator < SimpleDelegator
+  include ActiveModel::Validations
+
+  validates :title, :presence => true
+  validate :future_publication_date
+
+private
+  def errors
+    __getobj__.errors
+  end
+
+  def future_publication_date
+    errors.add(:publication_date, "must be in the future") if publication_date && publication_date <= Date.today
+  end
+
+end
+```
 
 These work pretty well, using a trick with [SimpleDelegator][2] where the
 validation objects wrap and forward unknown methods, such as data accessors, to
 the domain model.  Since mixing in [ActiveModel::Validations][3] provides
 a `#valid?` method to the validator object, that is not forwarded.
 
-{% gist 2961010 gistfile1.rb %}
+```ruby
+irb(main):063:0> post = Post.new
+=> #<Post:0x10d196f28 @errors=#<ActiveModel::Errors:0x10d196ed8 @messages=#<OrderedHash {}>, @base=#<Post:0x10d196f28 ...>>>
+irb(main):064:0> PublishedPostValidator.new(post).valid?
+=> false
+irb(main):065:0> post.errors.full_messages
+=> ["title can't be blank", "author can't be blank"]
+
+irb(main):070:0> post.publication_date = Date.yesterday
+=> Tue, 19 Jun 2012
+irb(main):071:0> DraftPostValidator.new(post).valid?
+=> false
+irb(main):072:0> post.errors.full_messages
+=> ["title can't be blank", "publication_date must be in the future"]
+irb(main):073:0> 
+```
 
 Unfortunately, mixing in `ActiveModel::Validations` *also* adds a `#errors` method
 to the validator, meaning that any errors found get added to the validator object,
@@ -78,6 +162,12 @@ currently interested in nesting the validations, so I'll leave that as an
 exercise for anyone interested.
 
 
+<aside>
+  This started life as a (Gist)[4]; there is some commentary there as well.
+</aside>
+
+
 [1]: http://api.rubyonrails.org/classes/ActiveModel/Errors.html
 [2]: http://www.ruby-doc.org/stdlib-1.9.3/libdoc/delegate/rdoc/SimpleDelegator.html
 [3]: http://api.rubyonrails.org/classes/ActiveModel/Validations.html
+[4]: https://gist.github.com/cflipse/2961010
