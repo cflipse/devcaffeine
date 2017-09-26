@@ -6,7 +6,7 @@
 
 // Our variables
 $base-font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
-$code-font-family: 'Droid Sans Mono', serif;
+$code-font-family: 'Source Code Pro', 'Droid Sans Mono', serif;
 $base-font-size:   20px;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
@@ -58,3 +58,5 @@ $on-laptop:        800px;
         "base",
         "layout"
 ;
+
+@import "monokai";

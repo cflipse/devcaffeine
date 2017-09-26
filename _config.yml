@@ -26,7 +26,6 @@ gems:
   - octopress-ink
   - octopress-social
   - octopress-gist
-  - octopress-solarized
   - octopress-pullquote-tag
   - octopress-quote-tag
   - octopress-feeds
