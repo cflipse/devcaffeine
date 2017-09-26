@@ -20,15 +20,10 @@ permalink: /:year/:month/:title/
 
 # Build settings
 
-gems:
+plugins:
   - jekyll-paginate
-  - octopress-paginate
-  - octopress-ink
   - octopress-social
-  - octopress-gist
-  - octopress-pullquote-tag
-  - octopress-quote-tag
-  - octopress-feeds
+  - jekyll-feed
 
 
 disqus:
