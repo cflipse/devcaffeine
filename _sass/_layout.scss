@@ -281,6 +281,10 @@ body {
     letter-spacing: -1px;
     line-height: 1;
 
+    text-transform: capitalize;
+    font-variant: small-caps;
+    font-weight: bold;
+
     @include media-query($on-laptop) {
         font-size: 36px;
     }
@@ -290,6 +294,7 @@ body {
     margin-bottom: $spacing-unit;
 
     h2 {
+        text-transform: capitalize;
         font-size: 32px;
 
         @include media-query($on-laptop) {
