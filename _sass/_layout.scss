@@ -2,13 +2,22 @@
  * Flexbox layout
  */
 
-html, body {
-  height: 100%;
-  width: 100%;
+html {
   margin: 0;
 }
 
+body { 
+  margin: 0 $spacing-unit;
+}
 
+@mixin bleed($spacing-unit: $spacing-unit) {
+    margin-left: -$spacing-unit;
+    margin-right: -$spacing-unit;
+
+    padding-left: $spacing-unit;
+    padding-right: $spacing-unit;
+
+}
 
 /**
  * Site header
@@ -21,6 +30,9 @@ html, body {
     border-bottom: 2px solid $brand-color-light;
     min-height: 56px;
     margin-bottom: $spacing-unit;
+
+    @include bleed;
+
 
     // Positioning context for the mobile navigation icon
     position: relative;
@@ -143,6 +155,8 @@ html, body {
     border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
 
+    @include bleed;
+
     a,
     a:visited {
       color: $grey-color-light;
@@ -197,20 +211,15 @@ html, body {
 
 aside {
   background:  #eee;
-  padding-left: $spacing-unit;
-  padding-right: $spacing-unit;
-  margin-left: -$spacing-unit;
-  margin-right: -$spacing-unit;
   font-size: smaller;
   color: $brand-color;
+
+  @include bleed;
 }
 
 .highlight pre {
-  padding-left: $spacing-unit;
-  padding-right: $spacing-unit;
-  margin-left: -$spacing-unit;
-  margin-right: -$spacing-unit;
   font-weight: $code-font-weight;
+  @include bleed;
 }
 
 
@@ -320,21 +329,3 @@ aside {
         }
     }
 }
-
-
-/**
- * Wrapper
- */
-.wrapper {
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
-
-    @include media-query($on-laptop) {
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
-    }
-}
-
-
