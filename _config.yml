@@ -24,6 +24,7 @@ plugins:
   - jekyll-paginate
   - octopress-social
   - jekyll-feed
+  - jekyll-autoprefixer
   - jekyll-livereload   # for dev
 
 
