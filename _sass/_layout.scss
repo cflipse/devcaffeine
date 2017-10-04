@@ -114,7 +114,7 @@ body {
             width: 36px;
             height: 26px;
             line-height: 0;
-            padding-top: 10px;
+            // padding-top: 10px;
             text-align: center;
 
             > svg {
@@ -312,3 +312,21 @@ body {
         }
     }
 }
+
+
+/**
+ * Wrapper
+ */
+.wrapper {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: $spacing-unit;
+    padding-left: $spacing-unit;
+
+    @include media-query($on-laptop) {
+        padding-right: $spacing-unit / 2;
+        padding-left: $spacing-unit / 2;
+    }
+}
+
+

@@ -31,7 +31,6 @@ $light-text-color:  #ddd;
 $dark-background-color:  $grey-color-dark;
 
 
-
 // Width of the content area
 $content-width:    900px;
 
@@ -50,7 +49,6 @@ $on-laptop:        800px;
         @content;
     }
 }
-
 
 
 // Import partials from `sass_dir` (defaults to `_sass`)
