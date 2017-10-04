@@ -8,19 +8,6 @@ html, body {
   margin: 0;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-.site-header, .site-footer {
-  flex: 0 0 auto;
-}
-
-.page-content {
-  flex: 1 0 auto;
-}
-
 
 
 /**
@@ -33,6 +20,7 @@ body {
     border-top: 5px solid $brand-color-dark;
     border-bottom: 2px solid $brand-color-light;
     min-height: 56px;
+    margin-bottom: $spacing-unit;
 
     // Positioning context for the mobile navigation icon
     position: relative;
