@@ -195,6 +195,26 @@ html, body {
 
 }
 
+aside {
+  background:  #eee;
+  padding-left: $spacing-unit;
+  padding-right: $spacing-unit;
+  margin-left: -$spacing-unit;
+  margin-right: -$spacing-unit;
+  font-size: smaller;
+  color: $brand-color;
+}
+
+.highlight pre {
+  padding-left: $spacing-unit;
+  padding-right: $spacing-unit;
+  margin-left: -$spacing-unit;
+  margin-right: -$spacing-unit;
+  font-weight: $code-font-weight;
+}
+
+
+
 @include media-query($on-laptop) {
     .footer-col-1,
     .footer-col-2 {

@@ -7,16 +7,6 @@ comments: true
 tags: kafka, ops
 ---
 
-<style>
-  aside {
-    background: #eeeeee;
-    padding: 1rem 30px;
-    margin: 1rem -30px;
-    font-size: smaller;
-    color: #422;
-  }
-</style>
-
 Recently, I and a number of colleagues spent the better part of a week chasing
 down some baffling behavior in a kafka consumer. After a routine[^routine]
 cluster upgrade, we observed that _one_ of the partitions in a deal publication
