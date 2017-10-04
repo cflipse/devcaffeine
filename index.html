@@ -1,60 +1,50 @@
 ---
 layout: default
 ---
+<section class=posts>
+  <header>
+    <h1 class="page-heading">Posts</h1>
+  </header>
 
-<div class="home">
+  {% for post in paginator.posts %}
+    <article class="post">
+      <header class="post-header">
+      <h2 class="post-title">
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </h2>
+      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      </header>
 
-  <section class=posts>
-    <header>
-      <h1 class="page-heading">Posts</h1>
-    </header>
+      <p class="post-content">
+      {{ post.excerpt }}
+    </p>
 
-    {% for post in paginator.posts %}
-      <article class="post">
-        <header class="post-header">
-        <h2 class="post-title">
-          <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        </header>
+      <footer class="post-footer">
+        <a class="post-link" rel="full-article" href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a>
+      </footer>
 
-        <p class="post-content">
-        {{ post.excerpt }}
-      </p>
-
-        <footer class="post-footer">
-          <a class="post-link" rel="full-article" href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a>
-        </footer>
-
-      </article>
-    {% endfor %}
+    </article>
+  {% endfor %}
 
 
+  <footer>
+    <!-- Pagination links -->
+    <nav class="pagination">
+      {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+      {% else %}
+      <span class="previous">Previous</span>
+      {% endif %}
+      <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+      {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+      {% else %}
+      <span class="next ">Next</span>
+      {% endif %}
+    </nav>
 
-    <footer>
-      <!-- Pagination links -->
-      <nav class="pagination">
-        {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
-        {% else %}
-        <span class="previous">Previous</span>
-        {% endif %}
-        <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-        {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path }}" class="next">Next</a>
-        {% else %}
-        <span class="next ">Next</span>
-        {% endif %}
-      </nav>
-
-      <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-    </footer>
-
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  </footer>
 
 
-
-
-
-
-
-</div>
+</section>
