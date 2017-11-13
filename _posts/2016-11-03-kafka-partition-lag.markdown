@@ -363,5 +363,6 @@ tying that conversation into a database lifecycle hook is the _opposite_ of
 mindful.  We got bit.
 
 [^mindful]: This includes your database, by the way.  The cron job described
-  above is an all-too-common example of the cavalier way we treat the `save`
+            above is an all-too-common example of the cavalier way we treat the
+            `save`
   methods.
