@@ -3,4 +3,3 @@ _site
 .sass-cache
 .code-highlighter-cache
 .gist-cache
-_deploy.yml
