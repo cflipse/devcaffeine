@@ -13,7 +13,6 @@ github_username:  cflipse
 
 exclude: [.bundle, bin, vendor]
 
-
 titlecase: true
 
 permalink: /:year/:month/:title/
@@ -26,6 +25,11 @@ plugins:
   - jekyll-feed
   - jekyll-autoprefixer
   - jekyll-livereload   # for dev
+
+
+livereload: true
+reload_port: 56789
+
 
 
 disqus:
