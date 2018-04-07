@@ -27,7 +27,7 @@ will serve as jumping off points for posts I've been meaing to write for ages.
 
 The stock Rails generator is what we'll use here, with a few options specified:
 
-```
+```shell
 flip@kona:~/src$ rails new warehouse --skip-active-record  --skip-spring --skip-coffee --skip-test
       create
       create  README.md
@@ -38,6 +38,16 @@ flip@kona:~/src$ cd warehouse/
 flip@kona:~/src/warehouse (master #)$ git add .
 flip@kona:~/src/warehouse (master +)$ git commit -m 'initial app generation'
 ```
+
+I've skipped activerecord for what I hope are obvious reasons.  `coffeescript`
+has never been a JS flavor I'm wild about, and I suspect there are better
+options these days.  I've skipped minitest so that I can install rspec.
+
+Skipping `spring` is a big one.  I consider it a band-aid that often causes more
+problems than it helps with. ROM's interctions with `rails` autoloading is
+still finiky at best, and adding _another_ layer of load confusion ... as
+maintainer of `rom-rails`, I've done basically nothing to support `spring`.  If
+it's a thing you need, contributions are encouraged.
 
 <aside>
 At this point, because I have rubocop installed globally, I'm going to copy
@@ -51,7 +61,7 @@ We now have an intial app generated. At present, it's nothing a web router and
 renderer; we have no storage, and no tests (because rails won't generate rspec
 installs).  Let's fix that:
 
-```ruby Gemfile
+```ruby title:"Gemfile"
 gem "pg"
 gem "rom-rails"
 gem "rom-sql"
@@ -61,6 +71,7 @@ group :development, :test do
 	gem "dotenv-rails"
 	gem "rspec-rails", "~> 3.0"
 end
+
 ```
 
 * `dotenv` is useful for loading environment variable configurations from
@@ -119,11 +130,11 @@ flip@kona:~/src/warehouse (master)$ createdb warehouse_test
 ```
 
 Next, we'll add some environment configuration:
-```shell .env.development
+```shell
 DATABASE_URL=postgres://localhost/warehouse_development
 ```
 
-```shell .env.test
+```shell
 DATABASE_URL=postgres://localhost/warehouse_test
 ```
 
@@ -163,3 +174,9 @@ will run.  If an exception is thrown, then either ROM does not know where the
 database can be found (check your `.env`s) or the database does not exist.
 
 
+## Next steps
+
+This is the bare bones; The initial app configuration is done, but there is
+quite literally nothing in the database. Rather than creating a pointless
+table, the [next]() entry will walk through adding authentication
+to the application.
