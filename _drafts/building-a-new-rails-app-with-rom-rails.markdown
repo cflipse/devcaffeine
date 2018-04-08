@@ -130,6 +130,7 @@ flip@kona:~/src/warehouse (master)$ createdb warehouse_test
 ```
 
 Next, we'll add some environment configuration:
+
 ```shell
 DATABASE_URL=postgres://localhost/warehouse_development
 ```
@@ -141,6 +142,14 @@ DATABASE_URL=postgres://localhost/warehouse_test
 `rom-sql` generally prefers to use a connection\_uri string for determining
 how to connect to your database.  If you specified a username and password
 then the string will look more like: `postgres://user:pass@localhost/warehouse_development`
+
+To access migration generators[^1], add this line to your rakefile:
+
+```ruby
+require "rom/sql/rake_tasks"
+```
+
+The migration syntax is using the `Sequel` gem; nothing changes from there.
 
 Finally, we generate our configurations and commit:
 
@@ -180,3 +189,7 @@ This is the bare bones; The initial app configuration is done, but there is
 quite literally nothing in the database. Rather than creating a pointless
 table, the [next]() entry will walk through adding authentication
 to the application.
+
+
+[^1]: I _definatly_ need to fix this in the rom-rails code; it should be part
+of the normal installation, or even pushed into the "normal" generator flow.
