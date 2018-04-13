@@ -23,6 +23,8 @@ Rails for a long, long time, I (like Rails itself) Have Opinions, and since
 this is my blog, I'll not be shy about sharing them. Hopefully, some of that
 will serve as jumping off points for posts I've been meaing to write for ages.
 
+<!-- more -->
+
 ## Step the first: Generation
 
 The stock Rails generator is what we'll use here, with a few options specified:
@@ -49,7 +51,7 @@ still finiky at best, and adding _another_ layer of load confusion ... as
 maintainer of `rom-rails`, I've done basically nothing to support `spring`.  If
 it's a thing you need, contributions are encouraged.
 
-<aside>
+<aside markdown='block'>
 At this point, because I have rubocop installed globally, I'm going to copy
 in my default configurations and add `rubocop-rails` to get my preferred
 defaults. Nothing to see here, so let's move along... For now.  There are
