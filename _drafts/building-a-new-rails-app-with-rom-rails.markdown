@@ -182,14 +182,82 @@ If everything has been wired correctly, and the database exists, than the specs
 will run.  If an exception is thrown, then either ROM does not know where the
 database can be found (check your `.env`s) or the database does not exist.
 
+## Adding Profiles
+
+As a final step, we're going to add a profiles table to the database,
+add some content to it, and display it in a barebones controller.
+
+First, we create the migration:
+
+```
+flip@kona:~/src/warehouse (master)$ bin/rails db:create_migration[create-profiles]
+
+<= migration file created db/migraate/20180413141632_create-profiles.rb
+flip@kona:~/src/warehouse (master)$
+```
+
+This creates a new migration file in the familiar timestamped form. The syntax
+of the migration [comes from `Sequel`][migration]:
+
+```
+ROM::SQL.migration do
+  change do
+    create_table :profiles do
+      primary_key :id
+
+      column :email, String, null: false, unique: true, index: true
+      column :display_name, String
+
+      column :private_email, TrueClass, default: true
+
+      column :bio, :text
+      column :state, String, default: 'active', index: true
+    end
+  end
+end
+```
+
+running the familiar `rake db:migrate` will create our table.
+
+Now, let's generate a relation and a repository so we can access the table:
+
+```
+flip@meteu:~/src/warehouse (master)$ be rails g rom:relation profiles
+      create  app/relations/profiles_relation.rb
+flip@meteu:~/src/warehouse (master)$ bin/rails g rom:repository profiles
+      create  app/repositories/profile_repository.rb
+flip@meteu:~/src/warehouse (master)$
+```
+
+Now if we crack open the console, we'll be able to add some quick test data to the table:
+
+```
+flip@meteu:~/src/warehouse (master)$ bin/rails c
+Loading development environment (Rails 5.1.6)
+irb(main):001:0> profiles = ProfileRepository.new(ROM.env)
+=> #<ProfileRepository struct_namespace=Warehouse auto_struct=true>
+irb(main):002:0> profiles.changeset(:create, [{email: 'test@example.com', display_name: "Test Guy"}, { email: 'old@example.com', display_name: "Old profile", state: 'disabled'}).call
+
+irb(main):004:0> profiles.create( [{email: 'test@example.com', display_name: "Test Guy"}, { email: 'old@example.com', display_name: "Old profile", state: 'disabled'}])
+
+=> #<Warehouse::Profile id=1 email="test@example.com" display_name="Test Guy" private_email=true bio=nil state="active">
+irb(main):005:0> ROM.env.relations[:profiles].count
+
+=> 2
+irb(main):006:0>
+```
+
+By default, there are no reader methods defined in a repository; we want to
+tune those specficially for our project domain.
 
 ## Next steps
 
-This is the bare bones; The initial app configuration is done, but there is
-quite literally nothing in the database. Rather than creating a pointless
-table, the [next]() entry will walk through adding authentication
-to the application.
+This is the bare bones; The initial app configuration is done, but there
+is not yet anything useful going on. In the next step, we're going to
+demonstrate commands by adding authentication to the application.
 
 
 [^1]: I _definatly_ need to fix this in the rom-rails code; it should be part
 of the normal installation, or even pushed into the "normal" generator flow.
+
+[migration]: https://github.com/jeremyevans/sequel/blob/master/doc/schema_modification.rdoc
