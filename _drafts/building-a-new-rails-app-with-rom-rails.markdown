@@ -61,15 +61,15 @@ We now have an intial app generated. At present, it's nothing a web router and
 renderer; we have no storage, and no tests (because rails won't generate rspec
 installs).  Let's fix that:
 
-```ruby title:"Gemfile"
+```ruby
 gem "pg"
 gem "rom-rails"
 gem "rom-sql"
 gem "rom-repository"
 
 group :development, :test do
-	gem "dotenv-rails"
-	gem "rspec-rails", "~> 3.0"
+  gem "dotenv-rails"
+  gem "rspec-rails", "~> 3.0"
 end
 
 ```
@@ -132,10 +132,12 @@ flip@kona:~/src/warehouse (master)$ createdb warehouse_test
 Next, we'll add some environment configuration:
 
 ```shell
+# .env.development
 DATABASE_URL=postgres://localhost/warehouse_development
 ```
 
 ```shell
+# .env.test
 DATABASE_URL=postgres://localhost/warehouse_test
 ```
 
@@ -146,6 +148,7 @@ then the string will look more like: `postgres://user:pass@localhost/warehouse_d
 To access migration generators[^1], add this line to your rakefile:
 
 ```ruby
+# Rakefile
 require "rom/sql/rake_tasks"
 ```
 
@@ -189,7 +192,7 @@ add some content to it, and display it in a barebones controller.
 
 First, we create the migration:
 
-```
+```shell
 flip@kona:~/src/warehouse (master)$ bin/rails db:create_migration[create-profiles]
 
 <= migration file created db/migraate/20180413141632_create-profiles.rb
@@ -199,7 +202,7 @@ flip@kona:~/src/warehouse (master)$
 This creates a new migration file in the familiar timestamped form. The syntax
 of the migration [comes from `Sequel`][migration]:
 
-```
+```ruby
 ROM::SQL.migration do
   change do
     create_table :profiles do
@@ -222,23 +225,22 @@ running the familiar `rake db:migrate` will create our table.
 Now, let's generate a relation and a repository so we can access the table:
 
 ```
-flip@meteu:~/src/warehouse (master)$ be rails g rom:relation profiles
+flip@kona:~/src/warehouse (master)$ be rails g rom:relation profiles
       create  app/relations/profiles_relation.rb
-flip@meteu:~/src/warehouse (master)$ bin/rails g rom:repository profiles
+flip@kona:~/src/warehouse (master)$ bin/rails g rom:repository profiles
       create  app/repositories/profile_repository.rb
-flip@meteu:~/src/warehouse (master)$
+flip@kona:~/src/warehouse (master)$
 ```
 
 Now if we crack open the console, we'll be able to add some quick test data to the table:
 
-```
-flip@meteu:~/src/warehouse (master)$ bin/rails c
-Loading development environment (Rails 5.1.6)
+```irb
 irb(main):001:0> profiles = ProfileRepository.new(ROM.env)
 => #<ProfileRepository struct_namespace=Warehouse auto_struct=true>
-irb(main):002:0> profiles.changeset(:create, [{email: 'test@example.com', display_name: "Test Guy"}, { email: 'old@example.com', display_name: "Old profile", state: 'disabled'}).call
-
-irb(main):004:0> profiles.create( [{email: 'test@example.com', display_name: "Test Guy"}, { email: 'old@example.com', display_name: "Old profile", state: 'disabled'}])
+irb(main):004:0> profiles.create([
+{email: 'test@example.com', display_name: "Test Guy"},
+{email: 'old@example.com', display_name: "Old profile", state: 'disabled'}
+])
 
 => #<Warehouse::Profile id=1 email="test@example.com" display_name="Test Guy" private_email=true bio=nil state="active">
 irb(main):005:0> ROM.env.relations[:profiles].count
@@ -248,7 +250,8 @@ irb(main):006:0>
 ```
 
 By default, there are no reader methods defined in a repository; we want to
-tune those specficially for our project domain.
+tune those specficially for our project domain, something I will go over in a
+later post.
 
 ## Next steps
 
