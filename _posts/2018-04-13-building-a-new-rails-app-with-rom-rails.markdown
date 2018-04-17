@@ -152,7 +152,7 @@ To access migration generators[^1], add this line to your rakefile:
 
 ```ruby
 # Rakefile
-require "rom/sql/rake_tasks"
+require "rom/sql/rake_task"
 ```
 
 The migration syntax is using the `Sequel` gem; nothing changes from there.
