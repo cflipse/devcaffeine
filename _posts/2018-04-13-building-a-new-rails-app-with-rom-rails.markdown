@@ -31,15 +31,15 @@ will serve as jumping off points for posts I've been meaing to write for ages.
 The stock Rails generator is what we'll use here, with a few options specified:
 
 ```shell
-flip@kona:~/src$ rails new warehouse --skip-active-record  --skip-spring --skip-coffee --skip-test
+flip@kona:~/src$ rails new rom-rails-demo --skip-active-record  --skip-spring --skip-coffee --skip-test
       create
       create  README.md
       create  Rakefile
 # ... gobs of output elided
 
-flip@kona:~/src$ cd warehouse/
-flip@kona:~/src/warehouse (master #)$ git add .
-flip@kona:~/src/warehouse (master +)$ git commit -m 'initial app generation'
+flip@kona:~/src$ cd rom-rails-demo/
+flip@kona:~/src/rom-rails-demo (master #)$ git add .
+flip@kona:~/src/rom-rails-demo (master +)$ git commit -m 'initial app generation'
 ```
 
 I've skipped activerecord for what I hope are obvious reasons.  `coffeescript`
@@ -108,7 +108,7 @@ We'll finish off the gem installations by generating our rspec configuration
 and comitting:
 
 ```shell
-flip@kona:~/src/warehouse (master)$ bin/rails g rspec:install
+flip@kona:~/src/rom-rails-demo (master)$ bin/rails g rspec:install
       create  .rspec
       create  spec
       create  spec/spec_helper.rb
@@ -128,25 +128,25 @@ at the end, you want to have both a test and development instance accessible.
 Here's the commands I threw locally:
 
 ```
-flip@kona:~/src/warehouse (master)$ createdb warehouse_development
-flip@kona:~/src/warehouse (master)$ createdb warehouse_test
+flip@kona:~/src/rom-rails-demo (master)$ createdb rom_rails_demo_development
+flip@kona:~/src/rom-rails-demo (master)$ createdb rom_rails_demo_test
 ```
 
 Next, we'll add some environment configuration:
 
 ```shell
 # .env.development
-DATABASE_URL=postgres://localhost/warehouse_development
+DATABASE_URL=postgres://localhost/rom_rails_demo_development
 ```
 
 ```shell
 # .env.test
-DATABASE_URL=postgres://localhost/warehouse_test
+DATABASE_URL=postgres://localhost/rom_rails_demo_test
 ```
 
 `rom-sql` generally prefers to use a connection\_uri string for determining
 how to connect to your database.  If you specified a username and password
-then the string will look more like: `postgres://user:pass@localhost/warehouse_development`
+then the string will look more like: `postgres://user:pass@localhost/rom_rails_demo_development`
 
 To access migration generators[^1], add this line to your rakefile:
 
@@ -160,7 +160,7 @@ The migration syntax is using the `Sequel` gem; nothing changes from there.
 Finally, we generate our configurations and commit:
 
 ```
-flip@kona:~/src/warehouse (master)$ bin/rails g rom:install
+flip@kona:~/src/rom-rails-demo (master)$ bin/rails g rom:install
       create  config/initializers/rom.rb
       create  lib/types.rb
       create  app/models/application_model.rb
@@ -177,7 +177,7 @@ configurations.
 Finally, we can verify see if everything is wired by running our specs:
 
 ```
-flip@kona:~/src/warehouse (master +)$ bundle exec rspec -rrails_helper
+flip@kona:~/src/rom-rails-demo (master +)$ bundle exec rspec -rrails_helper
 No examples found.
 
 
@@ -196,10 +196,10 @@ add some content to it, and display it in a barebones controller.
 First, we create the migration:
 
 ```shell
-flip@kona:~/src/warehouse (master)$ bin/rails db:create_migration[create-profiles]
+flip@kona:~/src/rom-rails-demo (master)$ bin/rails db:create_migration[create-profiles]
 
 <= migration file created db/migraate/20180413141632_create-profiles.rb
-flip@kona:~/src/warehouse (master)$
+flip@kona:~/src/rom-rails-demo (master)$
 ```
 
 This creates a new migration file in the familiar timestamped form. The syntax
@@ -228,24 +228,24 @@ running the familiar `rake db:migrate` will create our table.
 Now, let's generate a relation and a repository so we can access the table:
 
 ```
-flip@kona:~/src/warehouse (master)$ be rails g rom:relation profiles
+flip@kona:~/src/rom-rails-demo (master)$ be rails g rom:relation profiles
       create  app/relations/profiles_relation.rb
-flip@kona:~/src/warehouse (master)$ bin/rails g rom:repository profiles
+flip@kona:~/src/rom-rails-demo (master)$ bin/rails g rom:repository profiles
       create  app/repositories/profile_repository.rb
-flip@kona:~/src/warehouse (master)$
+flip@kona:~/src/rom-rails-demo (master)$
 ```
 
 Now if we crack open the console, we'll be able to add some quick test data to the table:
 
 ```irb
 irb(main):001:0> profiles = ProfileRepository.new(ROM.env)
-=> #<ProfileRepository struct_namespace=Warehouse auto_struct=true>
+=> #<ProfileRepository struct_namespace=rom-rails-demo auto_struct=true>
 irb(main):004:0> profiles.create([
 {email: 'test@example.com', display_name: "Test Guy"},
 {email: 'old@example.com', display_name: "Old profile", state: 'disabled'}
 ])
 
-=> #<Warehouse::Profile id=1 email="test@example.com" display_name="Test Guy" private_email=true bio=nil state="active">
+=> #<rom-rails-demo::Profile id=1 email="test@example.com" display_name="Test Guy" private_email=true bio=nil state="active">
 irb(main):005:0> ROM.env.relations[:profiles].count
 
 => 2
