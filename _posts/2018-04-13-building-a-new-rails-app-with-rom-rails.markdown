@@ -264,6 +264,7 @@ demonstrate commands by adding authentication to the application.
 
 
 [^1]: I _definatly_ need to fix this in the rom-rails code; it should be part
-of the normal installation, or even pushed into the "normal" generator flow.
+      of the normal installation, or even pushed into the "normal" generator
+      flow.
 
 [migration]: https://github.com/jeremyevans/sequel/blob/master/doc/schema_modification.rdoc
