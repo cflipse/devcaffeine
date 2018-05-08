@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Rom-rails Authenticating With Omniauth"
-date: 2018-04-07T15:19:10-04:00
 tags:
   - rom
   - rails
@@ -143,8 +142,8 @@ there's that profiles table we created last session ...
 
 The [`Warden` gem][warden] is a rack-based middleware for persisting
 authentication.  Importanly, it does not _handle_ authentication; it leaves
-that responsibility to you, the user. Finding and providing [seams] like this
-is fantastic.  They give us chokepoints to help reduce complexity, and easy
+that responsibility to you, the user. Finding and providing seams like this
+is fantastic.  They give us focal points to help reduce complexity, and easy
 locations to swap behavior at a later time.
 
 To make use of `Warden`, we'll have to connect it to our middleware and define
@@ -264,7 +263,7 @@ credentials leaking.
 
 Add the folllowing configuration to `config/initialiers/authentication.rb`
 
-```
+```ruby
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :developer unless Rails.env.production?
   provider :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET']
@@ -273,7 +272,7 @@ end
 
 And add a link to the authenticator on our login page:
 
-```
+```erb
 <%= link_to "Google Auth", "/auth/google_oauth2" %>
 ```
 
@@ -283,10 +282,6 @@ Selecting one will then redirect the user back to our demo site, where we will
 see a much greater amount of OAuth data than was available to our development
 shim.
 
-The next tutorial will look at how to cleanly store and retreive that
-information using `rom-sql` and `rom-repository`.
-
-
 ### Filtering authentication domains
 
 If you're building an internal service, there is a useful shorthand that can be
@@ -295,7 +290,8 @@ using google provided services, we can scope things down so that _only_
 internal users are granted access to the application.
 
 In the authentication configuration, I'll add an additional validation check:
-```
+
+```ruby
 Warden::Strategies.add(:omniauth) do
   # ...
   def authenticate!
@@ -314,7 +310,7 @@ With this change, attempting to authenticate with your plain `@gmail.com`,
 address will be rejected and return a warning message to the user.  This is
 easy to test at the moment, before we trigger the next step:
 
-```
+```ruby
 # spec/system/authentication_system_spec.rb
 require "rails_helper"
 
@@ -350,7 +346,7 @@ Lastly:  It's annoying to get prompted for a bunch of options when only
 one is valid. Fortunately, there is a configuration option we can use here:
 `hd` restricts the authenticator to a particular hosted domain:
 
-```
+```ruby
 Rails.application.config.middleware.use OmniAuth::Builder do
   # ...
   provider :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'],
@@ -363,8 +359,8 @@ and if not logged in, presents a login prompt for the correct domain, presenting
 a much smoother process for focused authentication schemes.
 
 Now that we are able to pull in authentication information, we need a way to
-keep track of it.  I'll cover the process of writing and persisting this
-information in a followon posting...
+keep track of it.  I'll cover the process of writing and persisting all this
+data using `rom-sql` and `rom-repository` in the next step...
 
 
 [step one]: https://blog.devcaffeine.com/2018/04/building-a-new-rails-app-with-rom-rails/
