@@ -220,6 +220,10 @@ def login_required
 end
 
 # app/controllers/sessions_controller.rb
+def new
+  flash.now[:alert] = warden.message if warden.message.present?
+end
+
 def create
   warden.authenticate!
   redirect_to "/"
@@ -240,10 +244,131 @@ the mechanics of authentication _entirely_ by hooking in to warden.
 
 ## Connecting to something real
 
+So, let's see what it takes to go from our demo app to something real.
+I'm going to use omniauth's google authenticator and add show how to add
+some domain filtering to that.
+
+Configuring Omniauth to talk to google's authentication provider is relatively
+straightforward, using the [`omniauth-google-oauth2` gem][Omniauth-google].
+The instructions on that page should be kept up to date with google's current
+process for aquiring application tokens, so I'm not going to repeat that here.
+
+There are a couple of places that one can stash the tokens so that they're
+available to the runtime, but not persisted in git.  Rails has a new
+`credentials` feature that seems designed for this sort of thing, however I
+prefer that my tokens never end up in the same repository, encrypted or not.
+`dotenv` supports a `.env.development.local` override file, and I prefer to
+keep credentials here.  Sure, it's slightly more work when cloning a project
+and setting up a new environment, but it also reduces the chances of the wrong
+credentials leaking.
+
+Add the folllowing configuration to `config/initialiers/authentication.rb`
+
+```
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :developer unless Rails.env.production?
+  provider :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET']
+end
+```
+
+And add a link to the authenticator on our login page:
+
+```
+<%= link_to "Google Auth", "/auth/google_oauth2" %>
+```
+
+This adds a link to the login page which will, when clicked, send the user to
+the google accounts page, where the user's various gmail accounts are presented.
+Selecting one will then redirect the user back to our demo site, where we will 
+see a much greater amount of OAuth data than was available to our development
+shim.
+
+The next tutorial will look at how to cleanly store and retreive that
+information using `rom-sql` and `rom-repository`.
 
 
-[step one]
+### Filtering authentication domains
 
+If you're building an internal service, there is a useful shorthand that can be
+configured here.  Assuming my company is using `devcaffeine.com` and that we're
+using google provided services, we can scope things down so that _only_
+internal users are granted access to the application.
+
+In the authentication configuration, I'll add an additional validation check:
+```
+Warden::Strategies.add(:omniauth) do
+  # ...
+  def authenticate!
+    if omniauth.info.email.blank?
+      fail "no email found!"
+    elsif !omniauth.info.email.match(/@devcaffeine.com$/)
+      fail "not authorized for your domain!"
+    else
+      success! omniauth
+    end
+  end
+end
+```
+
+With this change, attempting to authenticate with your plain `@gmail.com`,
+address will be rejected and return a warning message to the user.  This is
+easy to test at the moment, before we trigger the next step:
+
+```
+# spec/system/authentication_system_spec.rb
+require "rails_helper"
+
+RSpec.describe "Authentication filtering", type: :system do
+  before do
+    driven_by(:rack_test)
+  end
+  it "allows authentication by domain users" do
+    visit "/auth/developer"
+
+    fill_in "Name", with: "John Doe"
+    fill_in "Email", with: "jdoe@devcaffeine.com"
+
+    click_button "Sign In"
+
+    expect(page).to have_content("Welcome John Doe")
+  end
+
+  it "refuses authentication from unknown domains" do
+    visit "/auth/developer"
+
+    fill_in "Name", with: "Mike Smith"
+    fill_in "Email", with: "smith@gmail.com"
+
+    click_button "Sign In"
+
+    expect(page).to have_content("not authorized for your domain!")
+  end
+end
+```
+
+Lastly:  It's annoying to get prompted for a bunch of options when only
+one is valid. Fortunately, there is a configuration option we can use here:
+`hd` restricts the authenticator to a particular hosted domain:
+
+```
+Rails.application.config.middleware.use OmniAuth::Builder do
+  # ...
+  provider :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'],
+    hd: 'devcaffeine.com'
+end
+```
+
+Using this option skips the account prompt for currently logged in users,
+and if not logged in, presents a login prompt for the correct domain, presenting
+a much smoother process for focused authentication schemes.
+
+Now that we are able to pull in authentication information, we need a way to
+keep track of it.  I'll cover the process of writing and persisting this
+information in a followon posting...
+
+
+[step one]: https://blog.devcaffeine.com/2018/04/building-a-new-rails-app-with-rom-rails/
 [Omniauth]: https://github.com/omniauth/omniauth/blob/master/README.md
+[Omniauth-google]: https://github.com/zquestz/omniauth-google-oauth2
 [schema]: https://github.com/omniauth/omniauth/wiki/Auth-Hash-Schema
 [Warden]: https://github.com/wardencommunity/warden
