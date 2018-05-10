@@ -17,6 +17,8 @@ to a particular domain.
 This is a follow-on to [step one] where we initialize and configure a new rails
 app with rom-rails.
 
+<!-- more -->
+
 
 ## Installation
 
