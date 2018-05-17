@@ -34,6 +34,7 @@ GEM
       autoprefixer-rails (~> 6.3.6)
     jekyll-feed (0.9.3)
       jekyll (~> 3.3)
+    jekyll-graphviz (0.1.0)
     jekyll-livereload (0.2.2)
       em-websocket (~> 0.5)
       jekyll (~> 3.0)
@@ -88,6 +89,7 @@ PLATFORMS
 DEPENDENCIES
   jekyll-autoprefixer
   jekyll-feed
+  jekyll-graphviz
   jekyll-livereload
   jekyll-paginate
   kramdown

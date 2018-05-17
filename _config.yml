@@ -25,6 +25,7 @@ plugins:
   - jekyll-feed
   - jekyll-autoprefixer
   - jekyll-livereload   # for dev
+  - 'jekyll/graphviz'
 
 
 livereload: true
@@ -39,5 +40,10 @@ disqus:
 
 excerpt_link: "Read on &rarr;"
 excerpt_separator: <!-- more -->
+
+graphviz:
+  options: '-Tsvg -Npenwidth=2.5 -Nshape=box -Nstyle=rounded -Ependwidth1 -Ncolor="#3d1f00" -Nmargin="0.35,0.15" -Earrowsize=0.7'
+  command: 'dot'
+
 
 paginate: 5
