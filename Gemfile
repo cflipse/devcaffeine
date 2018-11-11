@@ -11,8 +11,8 @@ gem 'jekyll-autoprefixer'
 gem 'jekyll-paginate'
 
 group :jekyll_plugins do
-  gem 'jekyll-livereload'
   gem 'jekyll-graphviz'
+  gem 'jekyll-livereload'
 end
 
 gem 'octopress-social'
