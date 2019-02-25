@@ -3,3 +3,4 @@ _site
 .sass-cache
 .code-highlighter-cache
 .gist-cache
+.jekyll-cache

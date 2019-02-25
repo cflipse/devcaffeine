@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'octopress'
 gem 'octopress-deploy'
 
+gem 'jekyll', github: 'jekyll/jekyll'
 gem 'jekyll-feed'
 
 gem 'jekyll-autoprefixer'
