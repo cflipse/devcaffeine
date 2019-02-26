@@ -1,7 +1,7 @@
 method: rsync                             # How do you want to deploy? git, rsync or s3.
 site_dir: _site                           # Location of your static site files.
 
-user: flip@blog.devcaffeine.com           # The user for your host, e.g. user@host.com
+user: flip@b.devcaffeine.com           # The user for your host, e.g. user@host.com
 remote_path: /srv/www/blog.devcaffeine.com  # Destination directory
 delete: true                              # Remove files from destination which don't match files in source
 port:                                     # If your host requires a non standard port
