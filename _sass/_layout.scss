@@ -9,16 +9,23 @@ html, body {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(1em,1fr) 4fr minmax(1em, 1fr);
+  grid-template-rows: auto 1fr minmax(1em, auto);
 }
 
-.site-header, .site-footer {
-  flex: 0 0 auto;
+.site-header {
+  grid-column: 1/-1;
+  display: inherit;
+  grid-template-columns: inherit;
+}
+
+.site-footer {
+  grid-column: 1 / -1;
 }
 
 .page-content {
-  flex: 1 0 auto;
+  grid-column: 2;
 }
 
 
@@ -32,7 +39,6 @@ body {
     background-size: cover;
     border-top: 5px solid $brand-color-dark;
     border-bottom: 2px solid $brand-color-light;
-    min-height: 56px;
 
     // Positioning context for the mobile navigation icon
     position: relative;
@@ -62,6 +68,8 @@ body {
     margin-bottom: 0;
     font-weight: 700;
 
+    grid-column: 2;
+
     &,
     &:visited {
         color: $brand-color;
@@ -83,7 +91,7 @@ body {
 
 
 .site-nav {
-    padding-top: 0.5em;
+    // padding-top: 0.5em;
 
     .menu-icon {
         display: none;
