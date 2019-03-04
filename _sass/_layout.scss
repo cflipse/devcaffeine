@@ -2,6 +2,12 @@
  * Flexbox layout
  */
 
+@mixin extend-grid($extent: 1/-1) {
+  grid-column: 1/-1;
+  display: inherit;
+  grid-template-columns: inherit;
+}
+
 html, body {
   height: 100%;
   width: 100%;
@@ -20,16 +26,18 @@ body {
 }
 
 .site-header {
-  grid-column: 1/-1;
-  display: inherit;
-  grid-template-columns: inherit;
+  @include extend-grid;
+}
+
+.posts {
+  @include extend-grid;
+  >header {
+    grid-column: 2;
+  }
 }
 
 .site-footer {
-  grid-column: 1/-1;
-  display: inherit;
-  grid-template-columns: inherit;
-
+  @include extend-grid;
 
  >div {
     grid-column: 2;
@@ -44,8 +52,9 @@ body {
   }
 }
 
-.page-content {
-  grid-column: 2;
+main {
+  @include extend_grid;
+  >* { grid-column: 2; }
 }
 
 
@@ -259,8 +268,6 @@ body {
     font-size: 24px;
 }
 
-
-
 /**
  * Posts
  */
@@ -286,7 +293,22 @@ body {
     }
 }
 
+.post,
 .post-content {
+    @include extend-grid;
+    >* { grid-column: 2 }
+
+    .highlighter-rouge {
+      @include extend-grid;
+    }
+
+    .highlight {
+      @include extend-grid;
+      >code {
+        grid-column: 2;
+      }
+    }
+
     margin-bottom: $spacing-unit;
 
     h2 {
