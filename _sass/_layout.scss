@@ -298,7 +298,9 @@ main {
     @include extend-grid;
     >* { grid-column: 2 }
 
-    .highlighter-rouge {
+    // div because there's _also_ a code.highlighter-rouge for inline
+    // styling
+    div.highlighter-rouge {
       @include extend-grid;
     }
 
