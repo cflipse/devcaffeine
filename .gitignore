@@ -4,3 +4,4 @@ _site
 .code-highlighter-cache
 .gist-cache
 .jekyll-cache
+.jekyll-metadata
