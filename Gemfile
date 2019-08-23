@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'octopress'
 gem 'octopress-deploy'
 
-gem 'jekyll', github: 'jekyll/jekyll'
+gem 'jekyll', "~> 4.0"
 gem 'jekyll-feed'
 
 gem 'jekyll-autoprefixer'
@@ -13,7 +13,6 @@ gem 'jekyll-paginate'
 
 group :jekyll_plugins do
   gem 'jekyll-graphviz'
-  gem 'jekyll-livereload'
 end
 
 gem 'octopress-social'
