@@ -24,14 +24,7 @@ plugins:
   - octopress-social
   - jekyll-feed
   - jekyll-autoprefixer
-  - jekyll-livereload   # for dev
   - 'jekyll/graphviz'
-
-
-livereload: true
-reload_port: 56789
-
-
 
 disqus:
   shortname:  devcaffeine
