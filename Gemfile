@@ -2,9 +2,6 @@
 
 source 'https://rubygems.org'
 
-gem 'octopress'
-gem 'octopress-deploy'
-
 gem 'jekyll', "~> 4.0"
 gem 'jekyll-feed'
 
