@@ -21,7 +21,6 @@ permalink: /:year/:month/:title/
 
 plugins:
   - jekyll-paginate
-  - octopress-social
   - jekyll-feed
   - jekyll-autoprefixer
   - 'jekyll/graphviz'

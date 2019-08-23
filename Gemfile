@@ -15,7 +15,5 @@ group :jekyll_plugins do
   gem 'jekyll-graphviz'
 end
 
-gem 'octopress-social'
-
 gem 'kramdown'
 gem 'rouge'
