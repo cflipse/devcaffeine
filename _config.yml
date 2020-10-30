@@ -10,6 +10,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: http://blog.devcaffeine.com # the base hostname & protocol for your site
 twitter_username: cflipse
 github_username:  cflipse
+encoding: utf-8
 
 exclude: [.bundle, bin, vendor]
 
