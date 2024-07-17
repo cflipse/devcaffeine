@@ -13,3 +13,7 @@ end
 
 gem 'kramdown'
 gem 'rouge'
+
+# these are being removed from ruby-stdlib distribution
+gem 'csv'
+gem 'base64'
