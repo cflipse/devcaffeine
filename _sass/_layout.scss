@@ -2,7 +2,7 @@
  * Flexbox layout
  */
 
-@mixin extend-grid($extent: 1/-1) {
+@mixin extend-grid {
   grid-column: 1/-1;
   display: inherit;
   grid-template-columns: inherit;
@@ -200,7 +200,7 @@ main {
 
 .footer-heading {
   font-size: 18px;
-  margin-bottom: $spacing-unit / 2;
+  margin-bottom: calc($spacing-unit / 2);
   flex: 0 0 100%;
 
   display: none;    /// this title seems silly
@@ -300,6 +300,8 @@ main {
 .post,
 .post-content {
     @include extend-grid;
+    margin-bottom: $spacing-unit;
+
     >* { grid-column: 2 }
 
     // div because there's _also_ a code.highlighter-rouge for inline
@@ -314,8 +316,6 @@ main {
         grid-column: 2;
       }
     }
-
-    margin-bottom: $spacing-unit;
 
     h2 {
         text-transform: capitalize;
