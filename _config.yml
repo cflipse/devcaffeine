@@ -23,7 +23,6 @@ permalink: /:year/:month/:title/
 plugins:
   - jekyll-paginate
   - jekyll-feed
-  - jekyll-autoprefixer
   - 'jekyll/graphviz'
 
 disqus:
