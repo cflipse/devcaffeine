@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "getting started"
 date: 2011-12-23 11:05
 comments: true

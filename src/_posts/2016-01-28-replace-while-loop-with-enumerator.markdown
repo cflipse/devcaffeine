@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Replace While Loop With Enumerator
 date: 2016-01-28T11:36:34-05:00
 categories: ruby

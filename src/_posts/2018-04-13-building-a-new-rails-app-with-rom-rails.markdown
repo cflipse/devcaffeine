@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Building a New Rails App With Rom-rails"
 date: 2018-04-13T12:14:48-04:00
 categories:

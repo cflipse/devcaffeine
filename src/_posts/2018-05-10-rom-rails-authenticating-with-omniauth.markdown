@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Rom-rails Authenticating With Omniauth"
 date: 2018-05-10T11:32:04-04:00
 tags:
