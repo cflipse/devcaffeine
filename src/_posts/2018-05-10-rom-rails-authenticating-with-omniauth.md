@@ -8,10 +8,7 @@ tags:
   - omniauth
 ---
 
-This is the second step of a walkthrough of setting up a rom/rails project.
-The goal here is to add and configure an omniauth integration, pulling and
-storing user authentication data.  I'll also show how to restrict authentication
-to a particular domain.
+This is the second step of a walkthrough of setting up a rom/rails project. The goal here is to add and configure an omniauth integration, pulling and storing user authentication data.  I'll also show how to restrict authentication to a particular domain.
 
 This is a follow-on to [step one] where we initialize and configure a new rails
 app with rom-rails.

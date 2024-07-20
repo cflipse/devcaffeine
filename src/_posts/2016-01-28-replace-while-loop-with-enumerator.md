@@ -6,15 +6,7 @@ comments: true
 tags: refactoring, enumerator
 ---
 
-Sometimes, it looks like it is not possible to avoid using an accumulating
-array, a pattern that feels unnatural in Ruby.
-
-Recently, I've need to chase down and unroll pagination links over a
-JSON / REST api.  I don't know how many pages there will be, and it's probable
-(but not guaranteed) that I need to retrieve and use all of the content.
-Since each page is dependant on results from the previous page, there is no
-obvious Enumerable parallel.  Here, I'll demonstrate a quick refactoring that
-will provide in a clean, lazy enumerable object.
+Sometimes, it looks like it is not possible to avoid using an accumulating array, a pattern that feels unnatural in Ruby. Recently, I've need to chase down and unroll pagination links over a JSON / REST api.  I don't know how many pages there will be, and it's probable (but not guaranteed) that I need to retrieve and use all of the content. Since each page is dependant on results from the previous page, there is no obvious Enumerable parallel.  Here, I'll demonstrate a quick refactoring that will provide in a clean, lazy enumerable object.
 
 <!-- more -->
 

@@ -8,9 +8,7 @@ tags:
   - tutorial
 ---
 
-This is step one of a walkthrough for building a new app with `rom-rails`.
-I'll talk about my justifications and philosophy in another post; my intention
-here is to walk through the initial creation of a `rom-rails` application.
+This is step one of a walkthrough for building a new app with `rom-rails`. I'll talk about my justifications and philosophy in another post; my intention here is to walk through the initial creation of a `rom-rails` application.
 
 The end goal of this application is to serve as a file repository for use with
 another site.  As I work throgh building the app, I'll list out followons for

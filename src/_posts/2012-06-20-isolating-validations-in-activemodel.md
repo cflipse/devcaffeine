@@ -5,11 +5,7 @@ permalink: /:year/:month/:day/:title/
 categories: ruby
 ---
 
-I'm working on a rails project where I'm experimenting with a much more
-object-oriented approach than Rails usually encourages.  I'm intending on
-writing more in depth about that, when I can better gather my thoughts about
-the experience. I found something recently that I can write a brief post
-about and hopefully get the ball rolling.
+I'm working on a rails project where I'm experimenting with a much more object-oriented approach than Rails usually encourages.  I'm intending on writing more in depth about that, when I can better gather my thoughts about the experience. I found something recently that I can write a brief post about and hopefully get the ball rolling.
 
 I'm trying to keep a fairly hard-line divide between my persistence layer and
 the actual domain objects.  What this means for today's purposes is that my

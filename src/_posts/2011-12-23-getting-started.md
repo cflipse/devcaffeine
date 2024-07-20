@@ -5,9 +5,7 @@ comments: true
 categories: 
 ---
 
-It's been a long time since I tried to regularly maintain a blog; I once had 
-a wordpress blog under the same name, but it suffered from the bitrot that hits
-a lot of neglected self-hosted wordpress installs.
+It's been a long time since I tried to regularly maintain a blog; I once had a wordpress blog under the same name, but it suffered from the bitrot that hits a lot of neglected self-hosted wordpress installs.
 
 Rather than apologize for not posting and trying to get that old beast into
 shape, I'm starting from scratch here. Compared to the various social media

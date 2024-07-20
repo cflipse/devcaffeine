@@ -5,8 +5,7 @@ permalink: /:year/:month/:day/:title/
 categories: rails
 ---
 
-I may be repeating something you already know, but this is not something I see
-talked about a lot, and I've run into this more times than I should.
+I may be repeating something you already know, but this is not something I see talked about a lot, and I've run into this more times than I should.
 
 Every so often, when I'm combing through a Rails codebase, I'll find code that
 looks something like this:

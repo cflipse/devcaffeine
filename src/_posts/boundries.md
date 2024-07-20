@@ -6,14 +6,7 @@ tags: ddd, rails
 published: false
 ---
 
-In my experience, one of the reasons that older Rails applications become hard
-to maintayin is that they exhibit a poor sense of boundries.  Models become
-inappropriatly intimate with records across they system, creating a tangled web
-of dependency. Libraries are built into the core of the application, invoked
-from dozens of different locations and gradually becoming more and more
-difficult to upgrade or reyplace. Unit tests, in pursuit of speed and isolation,
-mock methods and responses and become a brittle, frustrating ediface,
-preventing refactoring and only barely trusted.
+In my experience, one of the reasons that older Rails applications become hard to maintain is that they exhibit a poor sense of boundries.  Models become inappropriatly intimate with records across they system, creating a tangled web of dependency. Libraries are built into the core of the application, invoked from dozens of different locations and gradually becoming more and more difficult to upgrade or reyplace. Unit tests, in pursuit of speed and isolation, mock methods and responses and become a brittle, frustrating ediface, preventing refactoring and only barely trusted.
 
 Maintaining a large app can feel like a constant battle with entropy, as you
 fight with changing requirements, security patches, and that once-helpful

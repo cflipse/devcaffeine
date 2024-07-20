@@ -6,21 +6,7 @@ comments: true
 tags: kafka, ops
 ---
 
-<style>
-  aside {
-    background: #eeeeee;
-    padding: 1rem 30px;
-    margin: 1rem -30px;
-    font-size: smaller;
-    color: #422;
-  }
-</style>
-
-Recently, I and a number of colleagues spent the better part of a week chasing
-down some baffling behavior in a kafka consumer. After a routine[^routine]
-cluster upgrade, we observed that _one_ of the partitions in a deal publication
-topic was lagging further and further behind, negatively affecting our
-production processes.
+Recently, I and a number of colleagues spent the better part of a week chasing down some baffling behavior in a kafka consumer. After a routine[^routine] cluster upgrade, we observed that _one_ of the partitions in a deal publication topic was lagging further and further behind, negatively affecting our production processes.
 
 [^routine]: Not actually all that routine, as we blanked out all of our existing
             topics, chasing a clean start.  This had the effect of changing
@@ -35,6 +21,16 @@ and see what it was that bit us.
 Also, this _might_ qualify as therapy... You've been warned.
 
 <!-- more -->
+
+<style>
+  aside {
+    background: #eeeeee;
+    padding: 1rem 30px;
+    margin: 1rem -30px;
+    font-size: smaller;
+    color: #422;
+  }
+</style>
 
 <aside markdown='block'>
 ### TL; DR
