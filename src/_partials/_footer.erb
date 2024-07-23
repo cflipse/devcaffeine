@@ -1,3 +1,14 @@
 <footer>
-  Contact me at <a href="mailto:<%= metadata.email %>"><%= metadata.email %></a>
+  <div>
+    <div><%= metadata.title %></div>
+    <a href="mailto:<%= metadata.email %>"><%= metadata.email %></a>
+  </div>
+
+  <div>
+    <%= link_to "GitHub", "https://github.com/#{site.metadata.github}" if site.metadata.github %>
+  </div>
+
+  <div>
+    <%= metadata.description %>
+  </div>
 </footer>
