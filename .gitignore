@@ -27,10 +27,6 @@ vendor
 # Mac files
 .DS_Store
 
-# Yarn
-yarn-error.log
-yarn-debug.log*
+# javascript
 .pnp/
 .pnp.js
-# Yarn Integrity file
-.yarn-integrity
