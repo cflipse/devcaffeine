@@ -1,0 +1,25 @@
+.site-header {
+  background: url("/images/coffeestain.jpg");
+
+  background-position: center 78%;
+  background-size: cover;
+
+  border-top: 5px solid black;
+  border-bottom: 2px solid black;
+
+  padding: 0 1rem ;
+
+  h1 {
+    text-align: start;
+    margin: 0;
+  }
+
+  a {
+    color: var(--heading-color);
+    text-decoration: none;
+  }
+
+  .tagline {
+    color: var(--body-background);
+  }
+}

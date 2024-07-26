@@ -1,0 +1,15 @@
+<footer>
+  <div>
+    <div><%= metadata.title %></div>
+    <a href="mailto:<%= metadata.email %>"><%= metadata.email %></a>
+  </div>
+
+  <div>
+    <i class="bi bi-github"></i>
+    <%= link_to "GitHub", "https://github.com/#{site.metadata.github}" if site.metadata.github %>
+  </div>
+
+  <div>
+    <%= metadata.description %>
+  </div>
+</footer>

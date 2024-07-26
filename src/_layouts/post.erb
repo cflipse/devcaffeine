@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<header>
+  <h1><%= data.title %></h1>
+  <p><%= data.date.strftime("%b %-d, %Y") %></p>
+</header>
+
+<article class="content">
+  <%= yield %>
+</article>

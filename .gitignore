@@ -1,7 +1,32 @@
-.bundle
-_site
+# Bridgetown
+output
+.bridgetown-cache
+.bridgetown-metadata
+.bridgetown-webpack
+.routes.json
+
+# Dependency folders
+node_modules
+bower_components
+vendor
+
+# Caches
 .sass-cache
-.code-highlighter-cache
-.gist-cache
-.jekyll-cache
-.jekyll-metadata
+.npm
+.node_repl_history
+
+# Ignore bundler config.
+/.bundle
+
+# Ignore Byebug command history file.
+.byebug_history
+
+# dotenv environment variables file
+.env
+
+# Mac files
+.DS_Store
+
+# javascript
+.pnp/
+.pnp.js

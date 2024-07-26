@@ -1,19 +1,42 @@
-# frozen_string_literal: true
+source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-source 'https://rubygems.org'
+####
+# Welcome to your project's Gemfile, used by Rubygems & Bundler.
+#
+# To install a plugin, run:
+#
+#   bundle add new-plugin-name -g bridgetown_plugins
+#
+# This will ensure the plugin is added to the correct Bundler group.
+#
+# When you run Bridgetown commands, we recommend using a binstub like so:
+#
+#   bin/bridgetown start (or console, etc.)
+#
+# This will help ensure the proper Bridgetown version is running.
+####
 
-gem 'jekyll', "~> 4.0"
-gem 'jekyll-feed'
+# If you need to upgrade/switch Bridgetown versions, change the line below
+# and then run `bundle update bridgetown`
+gem "bridgetown", "~> 1.3.4"
 
-gem 'jekyll-paginate'
+# Uncomment to add file-based dynamic routing to your project:
+# gem "bridgetown-routes", "~> 1.3.4"
 
-group :jekyll_plugins do
-  gem 'jekyll-graphviz'
-end
+# Puma is the Rack-compatible web server used by Bridgetown
+# (you can optionally limit this to the "development" group)
+gem "puma", "< 7"
 
-gem 'kramdown'
-gem 'rouge'
+# Uncomment to use the Inspectors API to manipulate the output
+# of your HTML or XML resources:
+# gem "nokogiri", "~> 1.13"
 
-# these are being removed from ruby-stdlib distribution
-gem 'csv'
-gem 'base64'
+# Or for faster parsing of HTML-only resources via Inspectors, use Nokolexbor:
+# gem "nokolexbor", "~> 0.4"
+
+gem "bridgetown-feed"
+gem "bridgetown-rougify"
+
+
+# gem "bridgetown-view-comopnent"
