@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+ruby "3.3.3"
+
 ####
 # Welcome to your project's Gemfile, used by Rubygems & Bundler.
 #
@@ -38,5 +40,4 @@ gem "puma", "< 7"
 gem "bridgetown-feed"
 gem "bridgetown-rougify"
 
-
-# gem "bridgetown-view-comopnent"
+# gem "bridgetown-view-component"
