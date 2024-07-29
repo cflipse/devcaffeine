@@ -1,12 +1,18 @@
 <footer>
   <div>
     <div><%= metadata.title %></div>
-    <a href="mailto:<%= metadata.email %>"><%= metadata.email %></a>
   </div>
 
   <div>
-    <i class="bi bi-github"></i>
-    <%= link_to "GitHub", "https://github.com/#{site.metadata.github}" if site.metadata.github %>
+    <ul>
+      <li><i class="bi bi-envelope-at-fill"></i>
+        <%= site.metadata.email %></li>
+
+      <li><i class="bit bi-mastodon"></i>
+        <%= link_to site.metadata.mastodon.user, site.metadata.mastodon.url %></li>
+      <li><i class="bi bi-github"></i>
+        <%= link_to site.metadata.github.user, site.metadata.github.url %></li>
+    </ul>
   </div>
 
   <div>

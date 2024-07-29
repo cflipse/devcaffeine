@@ -10,4 +10,11 @@ tagline: >-
   a programmer is a biological machine for turning coffee into code
 description: >-
   The infrequently updated blog of a software developer working in the DC region.
-github: cflipse
+
+email: cflipse @ gmail.com
+mastodon:
+  user: '@cflipse@ruby.social'
+  url:  https://ruby.social/@cflipse
+github:
+  user: cflipse
+  url: https://github.com/cflipse
