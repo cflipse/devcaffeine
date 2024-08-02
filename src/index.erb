@@ -15,6 +15,11 @@ paginate:
     <section>
         <%= post.summary %>
     </section>
+    <footer>
+      <%= link_to post.relative_url do %>
+        Read more <i class="bi-arrow-right"></i>
+      <% end %>
+    </footer>
 </article>
 <% end %>
 
