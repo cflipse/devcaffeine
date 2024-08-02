@@ -16,7 +16,7 @@
     "postcss-preset-env": "^9.1.2",
     "purgecss": "^6.0.0",
     "read-cache": "^1.0.0",
-    "sass": "^1.66.1",
+    "sass": "^1.77.8",
     "sass-loader": "^13.3.2"
   },
   "dependencies": {

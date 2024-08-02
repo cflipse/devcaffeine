@@ -21,7 +21,7 @@ ruby "3.3.3"
 
 # If you need to upgrade/switch Bridgetown versions, change the line below
 # and then run `bundle update bridgetown`
-gem "bridgetown", "~> 1.3.4"
+gem "bridgetown", "~> 2.0.0.beta"
 
 # Uncomment to add file-based dynamic routing to your project:
 # gem "bridgetown-routes", "~> 1.3.4"

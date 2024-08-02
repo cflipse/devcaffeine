@@ -30,3 +30,5 @@ vendor
 # javascript
 .pnp/
 .pnp.js
+
+tmp/
