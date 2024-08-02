@@ -1,6 +1,5 @@
 ---
 title: Use your environments
-comments: true
 permalink: /:year/:month/:day/:title/
 categories: rails
 ---

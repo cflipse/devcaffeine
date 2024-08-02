@@ -1,8 +1,8 @@
 ---
 title: "War Stories: Kafka Partition Lag"
 date: 2016-11-03T12:23:15-04:00
+permalink: /:year/:month/:day/:slug
 categories: postmortem
-comments: true
 tags: kafka, ops
 ---
 

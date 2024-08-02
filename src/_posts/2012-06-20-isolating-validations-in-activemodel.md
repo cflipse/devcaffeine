@@ -1,6 +1,5 @@
 ---
 title: Isolating Validations in ActiveModel
-comments: true
 permalink: /:year/:month/:day/:title/
 categories: ruby
 ---
