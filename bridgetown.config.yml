@@ -32,3 +32,6 @@ template_engine: erb
 timezone: America/New_York
 pagination:
   enabled: true
+
+rougify:
+  theme: "base16.monokai.dark"
