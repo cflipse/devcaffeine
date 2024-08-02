@@ -1,8 +1,6 @@
 ---
-layout: post
 title: graphiz test
 category: ruby
-published: false
 ---
 
 

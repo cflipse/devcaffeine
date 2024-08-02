@@ -1,9 +1,7 @@
 ---
-layout: post
 title: "Dependency Inversion"
 tags:
  - object design
-published: false
 ---
 
 `Dependency Inversion`, or `Dependency Injection`, is one of those high-sounding object design priniciples that sounds really confusing and complicated.  For those of us who fled the Java world, it brings to mind heavy-weight configuration frameworks, filled with XML files and `FactoryBuilderFactory` classes.  The reality, however, is that this principal is much simpler and more straightforward than these frameworks would suggest. To me, it suggests a very simple rule: Objects should avoid calling `new` wherever feasible.
