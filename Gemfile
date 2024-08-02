@@ -38,6 +38,6 @@ gem "puma", "< 7"
 # gem "nokolexbor", "~> 0.4"
 
 gem "bridgetown-feed"
-gem "bridgetown-rougify"
+# gem "bridgetown-rougify"
 
 # gem "bridgetown-view-component"
